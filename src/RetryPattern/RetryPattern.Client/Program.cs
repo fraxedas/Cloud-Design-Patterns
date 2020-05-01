@@ -18,7 +18,7 @@ namespace RetryPattern.Client
 
             var data = await service.GetData();
 
-            Console.WriteLine(data.StatusCode);
+            Console.WriteLine(data.StatusCode.ToString());
             Console.ReadLine();
         }
     }
@@ -39,9 +39,9 @@ namespace RetryPattern.Client
                     return await client.PostAsync("http://localhost:7071/api/Chaos",
                         new StringContent(JsonConvert.SerializeObject(new ChaosOptions
                         {
-                            ProbabilityOfChaos = 0.7,
+                            ProbabilityOfChaos = 0.9,
                             LatencyInMilliseconds = 1000,
-                            ResponseStatusCode = 429
+                            ResponseStatusCode = 503
                         }), Encoding.UTF8, "application/json")
                     );
                 });
