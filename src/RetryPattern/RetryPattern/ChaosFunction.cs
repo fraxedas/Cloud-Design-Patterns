@@ -4,38 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
+using RetryPattern.Contracts;
 
 namespace RetryPattern
 {
-    public class ChaosOptions
-    {
-        private float _probabilityOfChaos;
-
-        public ChaosOptions()
-        {
-            LatencyInMilliseconds = 0;
-            ProbabilityOfChaos = 1;
-            ResponseStatusCode = 500;
-        }
-
-        public int LatencyInMilliseconds { get; set; }
-
-        public float ProbabilityOfChaos
-        {
-            get => _probabilityOfChaos;
-            set =>
-                _probabilityOfChaos = value > 1 
-                    ? 1
-                    : value < 0 
-                        ? 0
-                        : value;
-        }
-
-        public int ResponseStatusCode { get; set; }
-
-        public bool Apply() => new Random(DateTime.UtcNow.Millisecond).NextDouble() < ProbabilityOfChaos;
-    }
-
     public static class ChaosFunction
     {
         [FunctionName("Chaos")]

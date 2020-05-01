@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetryPattern", "RetryPattern\RetryPattern.csproj", "{C428782B-1B79-4E7B-A3DA-F2C6E1DA88AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetryPattern", "RetryPattern\RetryPattern.csproj", "{C428782B-1B79-4E7B-A3DA-F2C6E1DA88AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetryPattern.Client", "RetryPattern.Client\RetryPattern.Client.csproj", "{145257C8-E5F3-4281-963A-727600108EBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetryPattern.Contracts", "RetryPattern.Contracts\RetryPattern.Contracts.csproj", "{CC38FE32-1651-4732-9B70-D305467C634B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{C428782B-1B79-4E7B-A3DA-F2C6E1DA88AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C428782B-1B79-4E7B-A3DA-F2C6E1DA88AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C428782B-1B79-4E7B-A3DA-F2C6E1DA88AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{145257C8-E5F3-4281-963A-727600108EBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{145257C8-E5F3-4281-963A-727600108EBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{145257C8-E5F3-4281-963A-727600108EBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{145257C8-E5F3-4281-963A-727600108EBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC38FE32-1651-4732-9B70-D305467C634B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC38FE32-1651-4732-9B70-D305467C634B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC38FE32-1651-4732-9B70-D305467C634B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC38FE32-1651-4732-9B70-D305467C634B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
