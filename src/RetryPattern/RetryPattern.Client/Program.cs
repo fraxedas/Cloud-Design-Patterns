@@ -30,7 +30,12 @@ namespace RetryPattern.Client
             return await HttpPolicyExtensions
                 .HandleTransientHttpError()
                 .OrResult(response => (int) response.StatusCode == 429)
-                .RetryAsync(10)
+                .WaitAndRetryAsync(10, x =>
+                {
+                    var delay = TimeSpan.FromSeconds(x);
+                    Console.WriteLine($"Waiting for {delay:g} in retry number {x}");
+                    return delay;
+                })
                 .ExecuteAsync(async () =>
                 {
                     Console.WriteLine("Trying to fetch remote data...");
@@ -40,8 +45,8 @@ namespace RetryPattern.Client
                         new StringContent(JsonConvert.SerializeObject(new ChaosOptions
                         {
                             ProbabilityOfChaos = 0.9,
-                            LatencyInMilliseconds = 1000,
-                            ResponseStatusCode = 503
+                            LatencyInMilliseconds = 250,
+                            ResponseStatusCode = 429
                         }), Encoding.UTF8, "application/json")
                     );
                 });
